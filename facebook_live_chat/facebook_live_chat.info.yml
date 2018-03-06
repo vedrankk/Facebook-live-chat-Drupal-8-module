@@ -1,0 +1,4 @@
+name: Facebook Live Chat
+description: Live chat with the designated facebook page
+type: module
+core: 8.x

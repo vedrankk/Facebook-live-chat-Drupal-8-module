@@ -1,0 +1,7 @@
+facebook-live-chat:
+  version: 1.x
+  js:
+    js/facebook-live-chat.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery

@@ -1,0 +1,32 @@
+<?php
+
+function facebook_live_chat_page_bottom(array &$page_bottom) {
+  $config = \Drupal::config('facebook_live_chat.adminsettings');
+
+  $page_id = $config->get('page_id');
+  $app_id = $config->get('app_id');
+
+  if(empty($page_id) || empty($app_id) || !is_numeric($page_id) || !is_numeric($app_id)){
+    return;
+  }
+
+  // echo '<div class="fb-customerchat" page_id="'.$page_id.'">'; exit;
+  $page_bottom['mymodule'] = ['#markup' => '<div class="fb-customerchat" origin="http://local.dev.autoduga.rs" page_id="'.$page_id.'"></div>'];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function facebook_live_chat_page_attachments(array &$attachments) {
+  $config = \Drupal::config('facebook_live_chat.adminsettings');
+
+  $page_id = $config->get('page_id');
+  $app_id = $config->get('app_id');
+
+  if(empty($page_id) || empty($app_id) || !is_numeric($page_id) || !is_numeric($app_id)){
+    return;
+  }
+
+  $attachments['#attached']['drupalSettings']['mymoduleComputedData'] = $app_id;
+  $attachments['#attached']['library'][] = 'facebook_live_chat/facebook-live-chat';
+}

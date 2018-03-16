@@ -1,5 +1,5 @@
 
-function ($, Drupal, drupalSettings) {
+(function ($, Drupal, drupalSettings) {
   var data = 0;
   /**
    * @namespace
